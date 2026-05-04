@@ -1,36 +1,202 @@
-##Revenue Leakage & Funnel Analysis Dashboard (SQL + Power BI)
+#  Revenue Leakage & Funnel Analysis (Power BI + SQL)
 
-Problem Statement E-commerce businesses often lose revenue due to order cancellations, delivery delays, and inefficiencies in the order funnel. This project identifies key leakage points across the order lifecycle and provides actionable insights to improve revenue retention and operational efficiency.
-Objective
-Identify revenue leakage sources (cancellations, failed deliveries, delays)
-Analyze funnel drop-offs from order placement to delivery
-Evaluate category, city, and state-level performance
-Track operational KPIs like delivery time, on-time %, and failure rates
-Dataset Description
-The dataset used in this project is the Olist Brazilian E-Commerce Dataset, sourced from Kaggle. It contains real-world transactional data from a Brazilian e-commerce platform, including orders, customers, products, payments, reviews, and delivery information. This dataset enables end-to-end analysis of the order lifecycle, making it suitable for identifying revenue leakage and funnel inefficiencies. 4. Tech Stack
+##  Project Overview
 
-SQL: Data extraction, joins, transformations
-Power BI: Data modeling, dashboard creation
-DAX: KPI calculations and measures
-Key Metrics
-Revenue Leakage %
-Cancellation Rate
-On-Time Delivery %
-Average Delivery Time
-Funnel Conversion Rate
-Average Order Value (AOV)
-Dashboard Overview Executive Summary: GMV, Orders, Revenue, Leakage %, Monthly Trends Delivery & Operations: On-time vs Late Deliveries, Avg Delivery Days by State Revenue & Risk: Leakage Trends, Category-wise Cancellations Categories & Geography: Revenue by Category, Top Cities & States
-Key Insights
-Revenue increases with order volume, but leakage persists due to cancellations and delays
-Certain categories have disproportionately high cancellation rates
-High-revenue cities are not always operationally efficient
-A small number of categories contribute heavily to total leakage
-Business Recommendations
-Optimize logistics in high-delay regions
-Reduce cancellations in high-risk categories
-Improve last-mile delivery efficiency
-Focus on scaling high-performing cities
-How to Use Download the .pbix file, open it in Power BI Desktop, and interact with the dashboard using filters and slicers.
-Future Improvements
-Integrate real-time data
-Perform customer segmentation analysis
+Most businesses track revenue, orders, and delivery metrics.
+But very few understand:
+
+> **Where revenue is actually being lost.**
+
+This project analyzes an e-commerce dataset to identify:
+
+* Revenue leakage across the funnel
+* Operational inefficiencies in delivery
+* Geographic and category-level performance gaps
+
+Instead of reporting metrics, this project focuses on:
+
+> **Diagnosing where value is being destroyed**
+
+---
+
+##  Problem Statement
+
+Organizations often assume:
+
+* High order volume = strong performance
+* High revenue = healthy business
+
+But in reality:
+
+* Revenue can leak through cancellations, delays, and inefficiencies
+* Operational issues silently reduce profitability
+* Growth can mask structural problems
+
+This project answers:
+
+* Where is revenue leaking?
+* What causes delivery inefficiencies?
+* Which regions and categories drive or destroy value?
+
+---
+
+##  Tools & Technologies
+
+* **SQL**
+
+  * Data extraction
+  * Data cleaning & transformation
+  * Aggregations and joins across multiple tables
+
+* **Power BI**
+
+  * Data modeling
+  * DAX measures
+  * Interactive dashboard design
+
+---
+
+## Dashboard Overview
+
+### 1. Executive Summary
+
+![Executive Summary](assets/executive-summary.png)
+
+Key KPIs:
+
+* Total GMV: 50.95M
+* Total Revenue: 49.53M
+* Revenue Leakage: 2.78%
+* Total Orders: 92.2K
+* Delivery Rate: 98%
+* AOV: $533
+
+Insight:
+
+> Strong topline metrics, but hidden leakage reduces real value.
+
+---
+
+### 2. Delivery & Operations Analysis
+
+![Delivery Ops](assets/delivery-ops.png)
+
+Key Metrics:
+
+* On-Time Delivery: 92.05%
+* Late Deliveries: 7.95%
+* Avg Delivery Time: 12.8 days
+
+ Insights:
+
+* Delivery delays directly impact customer satisfaction
+* Certain states show significantly higher delay rates
+* Operational inefficiencies are not evenly distributed
+
+---
+
+### 3. Revenue Leakage & Risk Analysis
+
+![Revenue Risk](assets/revenue-risk.png)
+
+Key Metrics:
+
+* Cancellation Rate: 0.47%
+* Revenue Leaked: 1.42M
+* Fulfillment Failures: 602
+
+Insights:
+
+* Specific product categories contribute disproportionately to cancellations
+* Revenue leakage shows temporal spikes → indicates instability
+* Leakage is not random — it is **pattern-driven**
+
+---
+
+### 4. Categories & Geographic Analysis
+
+![Categories Geo](assets/categories-geo.png)
+
+Key Metrics:
+
+* Top Category: Health & Beauty ($4.46M)
+* Top City: Sao Paulo ($6.82M)
+* Top State: SP ($18.72M)
+
+ Insights:
+
+* Revenue is highly concentrated in specific regions
+* Category performance varies significantly
+* Logistics and geography influence revenue realization
+
+---
+
+## Key Business Insights
+
+* **Revenue leakage is structural, not accidental**
+  It consistently appears in specific categories and time periods
+
+* **Delivery performance impacts revenue realization**
+  Delays increase cancellations and reduce customer trust
+
+* **Revenue concentration increases risk**
+  Over-dependence on specific regions limits scalability
+
+* **High performance metrics can be misleading**
+  Strong revenue numbers can hide operational inefficiencies
+
+---
+
+## Project Structure
+
+```id="3ldm92"
+Revenue-Leakage-Analysis/
+│
+├── assets/                # Dashboard images
+├── dataset/               # Raw & cleaned data
+├── sql/                   # SQL queries
+├── powerbi/               # .pbix file
+└── README.md
+```
+
+---
+
+##  How to Use
+
+1. Clone the repository
+2. Open SQL scripts to understand data preparation
+3. Load dataset into Power BI
+4. Open `.pbix` file
+5. Explore dashboards using filters and slicers
+
+---
+
+##  Conclusion
+
+This project demonstrates that:
+
+> **Revenue growth alone does not indicate business health.**
+
+True performance requires understanding:
+
+* Where revenue is lost
+* Why inefficiencies occur
+* How operations impact profitability
+
+---
+
+## 🔗 Future Improvements
+
+* Add predictive modeling for revenue leakage
+* Build anomaly detection for delivery delays
+* Integrate real-time data pipelines
+* Expand analysis across multiple time periods
+
+---
+
+##  Author
+
+**Ayush Kaushik**
+Aspiring Data Analyst | AI Engineer
+
+---
