@@ -1,202 +1,110 @@
-#  Revenue Leakage & Funnel Analysis (Power BI + SQL)
+# Revenue Leakage & Funnel Analysis (SQL + Power BI)
 
-##  Project Overview
+## Overview
 
-Most businesses track revenue, orders, and delivery metrics.
-But very few understand:
+This project analyzes business performance using the **Olist Brazilian E-commerce dataset**.
 
-> **Where revenue is actually being lost.**
+It focuses on identifying **revenue leakage and operational inefficiencies** across the order lifecycle by integrating:
 
-This project analyzes an e-commerce dataset to identify:
-
-* Revenue leakage across the funnel
-* Operational inefficiencies in delivery
-* Geographic and category-level performance gaps
-
-Instead of reporting metrics, this project focuses on:
-
-> **Diagnosing where value is being destroyed**
+* **SQL** → Data extraction, cleaning, and transformation
+* **Power BI** → Dashboard creation and business insights
 
 ---
 
 ##  Problem Statement
 
-Organizations often assume:
+E-commerce businesses often focus on revenue growth but ignore hidden inefficiencies.
 
-* High order volume = strong performance
-* High revenue = healthy business
+Key questions addressed:
 
-But in reality:
-
-* Revenue can leak through cancellations, delays, and inefficiencies
-* Operational issues silently reduce profitability
-* Growth can mask structural problems
-
-This project answers:
-
-* Where is revenue leaking?
-* What causes delivery inefficiencies?
-* Which regions and categories drive or destroy value?
+* Where are orders dropping in the funnel?
+* Why are some orders not converting into successful deliveries?
+* How do operational issues impact revenue realization?
 
 ---
 
-##  Tools & Technologies
+## Solution Approach
 
-* **SQL**
+1. Extracted and cleaned data using SQL
+2. Built relational data model (orders, customers, payments, reviews, etc.)
+3. Designed KPIs to track:
 
-  * Data extraction
-  * Data cleaning & transformation
-  * Aggregations and joins across multiple tables
-
-* **Power BI**
-
-  * Data modeling
-  * DAX measures
-  * Interactive dashboard design
+   * Revenue leakage
+   * Funnel conversion
+   * Delivery performance
+4. Created interactive dashboards in Power BI to uncover insights
 
 ---
 
-## Dashboard Overview
+## Funnel Analysis (Where Revenue is Lost)
 
-### 1. Executive Summary
+![Funnel Analysis](Assets/funnel-analysis.png)
 
-![Executive Summary](assets/executive-summary.png)
+### Insights:
 
-Key KPIs:
+* Orders drop between stages (Approved → Placed → Delivered)
+* ~97% conversion rate still results in significant loss at scale
+* Small inefficiencies compound into large revenue impact
 
-* Total GMV: 50.95M
-* Total Revenue: 49.53M
-* Revenue Leakage: 2.78%
-* Total Orders: 92.2K
-* Delivery Rate: 98%
-* AOV: $533
-
-Insight:
-
-> Strong topline metrics, but hidden leakage reduces real value.
+ **Key Takeaway:**
+Even minor drop-offs in the funnel lead to measurable revenue leakage.
 
 ---
 
-### 2. Delivery & Operations Analysis
+## Delivery Performance (Why It Happens)
 
-![Delivery Ops](assets/delivery-ops.png)
+![On Time Vs Late Delivery](Assets/on-time-vs-late.png)
+![Late Delivery by State](Assets/delivery-performance.png)
 
-Key Metrics:
+### Insights:
 
-* On-Time Delivery: 92.05%
-* Late Deliveries: 7.95%
-* Avg Delivery Time: 12.8 days
+* ~8% of orders are delivered late
+* Certain regions show higher delivery delays
+* Late deliveries increase cancellations and failed orders
 
- Insights:
+**Key Takeaway:**
+Delivery inefficiency is a major root cause of funnel drop-offs.
 
-* Delivery delays directly impact customer satisfaction
-* Certain states show significantly higher delay rates
-* Operational inefficiencies are not evenly distributed
+## Key Insights
 
----
+* Revenue leakage is **systematic, not random**
+* Operational performance directly impacts revenue
+* Funnel efficiency is as important as revenue growth
 
-### 3. Revenue Leakage & Risk Analysis
+## Tools & Technologies
 
-![Revenue Risk](assets/revenue-risk.png)
+* **SQL** → Data extraction, joins, transformations
+* **Power BI** → Dashboard development
+* **DAX** → KPI calculations
 
-Key Metrics:
+## Dataset
+This project uses the Olist Brazilian E-Commerce Dataset, which represents real-world transactional data from a multi-vendor online marketplace operating in Brazil.
 
-* Cancellation Rate: 0.47%
-* Revenue Leaked: 1.42M
-* Fulfillment Failures: 602
-
-Insights:
-
-* Specific product categories contribute disproportionately to cancellations
-* Revenue leakage shows temporal spikes → indicates instability
-* Leakage is not random — it is **pattern-driven**
-
----
-
-### 4. Categories & Geographic Analysis
-
-![Categories Geo](assets/categories-geo.png)
-
-Key Metrics:
-
-* Top Category: Health & Beauty ($4.46M)
-* Top City: Sao Paulo ($6.82M)
-* Top State: SP ($18.72M)
-
- Insights:
-
-* Revenue is highly concentrated in specific regions
-* Category performance varies significantly
-* Logistics and geography influence revenue realization
-
----
-
-## Key Business Insights
-
-* **Revenue leakage is structural, not accidental**
-  It consistently appears in specific categories and time periods
-
-* **Delivery performance impacts revenue realization**
-  Delays increase cancellations and reduce customer trust
-
-* **Revenue concentration increases risk**
-  Over-dependence on specific regions limits scalability
-
-* **High performance metrics can be misleading**
-  Strong revenue numbers can hide operational inefficiencies
-
----
+The dataset captures the entire lifecycle of an order, starting from purchase to delivery and customer feedback. It is designed in a relational format, where multiple tables are connected to simulate a real production-level database system.
 
 ## Project Structure
 
-```id="3ldm92"
+```id="projfinal"
 Revenue-Leakage-Analysis/
 │
-├── assets/                # Dashboard images
-├── dataset/               # Raw & cleaned data
-├── sql/                   # SQL queries
-├── powerbi/               # .pbix file
+├── Assets/
+├── SQL Script/                  # SQL scripts for data processing
+├── Power BI File/            # Power BI (.pbix file)
 └── README.md
 ```
 
----
 
-##  How to Use
+## Conclusion
 
-1. Clone the repository
-2. Open SQL scripts to understand data preparation
-3. Load dataset into Power BI
-4. Open `.pbix` file
-5. Explore dashboards using filters and slicers
+> Revenue growth alone does not reflect business health
 
----
+By analyzing funnel conversion and delivery performance, this project highlights how **operational inefficiencies directly lead to revenue loss**.
 
-##  Conclusion
 
-This project demonstrates that:
+## Future Improvements
 
-> **Revenue growth alone does not indicate business health.**
+* Add predictive analysis (late delivery prediction)
+* Include customer segmentation
+* Automate pipeline using Python
 
-True performance requires understanding:
 
-* Where revenue is lost
-* Why inefficiencies occur
-* How operations impact profitability
-
----
-
-## 🔗 Future Improvements
-
-* Add predictive modeling for revenue leakage
-* Build anomaly detection for delivery delays
-* Integrate real-time data pipelines
-* Expand analysis across multiple time periods
-
----
-
-##  Author
-
-**Ayush Kaushik**
-Aspiring Data Analyst | AI Engineer
-
----
